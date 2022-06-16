@@ -1,0 +1,26 @@
+.bagitem{
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: space-between;
+    padding: 50px 20px 20px 20px;
+}
+.bagitem>div{
+    /* border: 1px solid red; */
+    width: 23%;
+    height : 500px;
+}
+.bagitem>div>img{
+    width: 100%;
+    border-radius: 50px;
+    border: 3px solid #e5b95f;
+    padding: 3px;
+    cursor: pointer;
+}
+.bagitem>div>h3{
+    font-size: 18px;
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 26px;
+    text-transform: uppercase;
+}
+

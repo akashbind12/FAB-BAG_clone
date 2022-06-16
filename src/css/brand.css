@@ -1,0 +1,24 @@
+.mainbrand{
+    background-color: #e5b95f;
+    margin: 60px 0 60px 0;
+}
+.brand{
+    /* border: 1px solid red; */
+    display: flex;
+    width : 75%;
+    margin: auto;
+}
+.brand>div{
+    /* border: 1px solid red; */
+    width : 20%;
+    height: 200px;
+}
+.brand>div>img{
+    margin: 20% auto;
+    width: 50%;
+    height: 50%;
+    border: 2px solid #222222;
+    border-radius: 10px;
+    padding: 2px;
+    background-color: #ffffff;
+}

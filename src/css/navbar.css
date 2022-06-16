@@ -1,0 +1,38 @@
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    padding : 8px 20px 8px 0px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    overflow: hidden;
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
+    background: white;
+}
+.head{
+    color: #e5b95f;
+    padding-left: 20px;
+}
+.logodiv>img{
+    /* border: 1px solid red;  */
+    width: 200px;
+    height: 50px
+}
+.icondiv{
+    display: flex;
+    /* border: 1px solid red; */
+    gap: 20px;
+    padding-top: 15px;
+    padding-right: 20px;
+}
+.icondiv>div{
+    /* border: 1px solid red; */
+    width : 25px;
+    height: 25px;
+}
+.icondiv>div>*{
+    /* border: 1px solid red; */
+    width : 20px;
+    height: 20px;
+    color: #e5b95f;
+}

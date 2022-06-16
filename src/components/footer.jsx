@@ -1,21 +1,22 @@
 import "../css/footer.css";
+import { BsInstagram } from 'react-icons/bs';
+import { FaFacebookF } from 'react-icons/fa';
+import { BsTwitter } from 'react-icons/bs';
+import { BsYoutube} from 'react-icons/bs';
 
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+
 export const Footer = () => {
-  const navigate = useNavigate();
   return (
-    <div className="footermain">
+    <div className="footercontainer">
       <div className="footer">
-        <div className="information">
-          <p style={{ color: "black", fontSize: "larger" }}>INFORMATION</p>
-          <p
-            onClick={() => {
-              navigate(`./about`);
-            }}
-          >
-            About Us
+        <div className="details">
+          <p style={{
+                color: "black",
+                fontSize: "larger"
+            }}>
+            INFORMATION
           </p>
+          <p> About Us</p>
           <p>Associated</p>
           <p>FAQ</p>
           <p>Collaborative with Fab Bag</p>
@@ -24,49 +25,72 @@ export const Footer = () => {
           <p>Terms & Conditions</p>
           <p>Privacy Policy</p>
         </div>
-        <div className="information">
-          <p style={{ color: "black", fontSize: "larger", cursor: "default" }}>
+        <div className="details">
+          <p 
+          style={{ 
+          color: "black", 
+          fontSize: "larger", 
+          cursor: "default" 
+          }}>
             CUSTOMER CARE
           </p>
           <p style={{ marginBottom: "-15px" }}>Call : 022-6805-6010 </p>
           <p>(Monday to Friday : 9 AM - 7 PM).</p>
           <p>Mail : crew@fabbag.com</p>
         </div>
-        <div className="information">
-          <p style={{ color: "black", fontSize: "larger" }}>NEWSLETTER</p>
-          <p>Signup for the latest offers, updates and news</p>
+        <div className="details">
+          <p style={{ 
+          color: "black", 
+          fontSize: "larger" 
+          }}>
+          NEWSLETTER</p>
+          <p style={{
+            fontSize: "13px",
+          }}>Signup for the latest offers, updates and news</p>
           <div className="subscribediv">
             <input
               type="text"
               className="subscribe_input"
-              placeholder="Your Email Address"
+              placeholder="Your email address"
             />
             <button className="subscribe_btn">SUBSCRIBE</button>
             </div>
             <div>
-            <p style={{ color: "grey" ,marginRight : "20px"}}>Don’t worry we don’t spam</p>
+            <p style={{ color: "grey" ,
+             fontSize: "13px",
+             textAlign: "left",
+             paddingLeft : "50px"
+            }}>
+            Don’t worry we don’t spam</p>
           
           </div>
         </div>
       </div>
       <div>
-        <div style={{ display: "flex", marginLeft: "39%" }}>
-          <div id="socialmediadiv1">
-          {/* <i className="fa-brands fa-facebook-f"></i> */}
+        <div style={{ display: "flex",
+         marginLeft: "39%" 
+         }}>
+          <div id="facebook">
+          <FaFacebookF></FaFacebookF>
           </div>
-          <div id="socialmediadiv2">
-          {/* <i className="fa-brands fa-twitter"></i> */}
+          <div id="twitter">
+           <BsTwitter></BsTwitter>
             </div>
-          <div id="socialmediadiv3">
-          {/* <i className="fa-brands fa-instagram"></i> */}
+          <div id="instagram">
+            <BsInstagram></BsInstagram>
             </div>
-            <div id="socialmediadiv4">
-            {/* <i className="fa-brands fa-youtube-square"></i> */}
+            <div id="youtube">
+            <BsYoutube></BsYoutube>
             </div>
            
         </div>
         <div>
-           <p>Copyright © 2021 fabbag.com All rights reserved.</p>
+            <p style={{
+                margin : "20px ",
+                color : "gray",
+                fontWeight : "500",
+                fontSize : "18px"
+           }}>Copyright © 2021 fabbag.com All rights reserved.</p>
             </div>
       </div>
     </div>

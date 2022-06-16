@@ -8,12 +8,10 @@
     background-position: center center;
 }
 .qoute>*{
-    /* border: 1px solid red; */
-    margin-top: 50px;
-}
-.qoute>*{
     width: 40px;
     height: 40px;
+    /* border: 1px solid red; */
+    margin: 40px auto;
 }
 .quotesdiv{
     /* border: 1px solid red; */

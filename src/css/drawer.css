@@ -1,0 +1,79 @@
+.drawercart{
+    /* border: 1px solid red; */
+    width: 100%;
+    height : 100px;
+    color: white;
+    background-color: black;
+    padding: 40px 10px 40px 10px;
+    font-size: 18px;
+}
+.drawercartitem{
+    border: 1px solid lightgray;
+    width: 100%;
+    height: 120px;
+    display: flex;
+}
+.drawercartitemimg{
+    /* border: 1px solid red; */
+    width: 20%;
+    padding: 20px 5px 5px 5px;
+}
+.drawercartitemdetails{
+    /* border: 1px solid red; */
+    width : 70%;
+    padding: 20px;
+}
+.drawerclosebutton{
+    /* border: 1px solid red; */
+    width : 10%;
+    padding: 10px;
+}
+.Qty{
+    color: grey;
+}
+.drawertotal{
+    border: 1px solid lightgray;
+
+}
+.drawertotal{
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+}
+.drawertotal>h1{
+    font-size: 20px;
+    font-weight: 600;
+}
+.drawertotal>h1:nth-child(2){
+    color: #e5b95f;
+}
+.viewcart{
+    border: 2px solid black;
+    text-align: center;
+    font-size: 15px;
+    line-height: 50px;
+    background-color: white;
+    margin-top: 20px;
+}
+.viewcart:hover{
+    background-color: #e5b95f;
+}
+.drawercheckout{
+    text-align: center;
+    font-size: 15px;
+    line-height: 50px;
+    background-color: #e5b95f;
+    margin-top: 20px;
+    font-weight: 600;
+}
+.drawercheckout:hover{
+    background-color: black;
+    color: white;
+}
+.drawer-bottom{
+    float: bottom;
+    /* border: 1px solid red; */
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+}

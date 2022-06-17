@@ -3,12 +3,29 @@ import "../css/navbar.css"
 import { BiSearch } from 'react-icons/bi';
 import { FiHeart } from 'react-icons/fi';
 import { CgProfile } from 'react-icons/cg';
-import { AiOutlineShoppingCart} from 'react-icons/ai';
+import { AiOutlineShoppingCart } from 'react-icons/ai';
+import {Drawer,DrawerOverlay,useDisclosure} from '@chakra-ui/react'
+import React from "react";
+import { Drawercart } from "./drawer";
 
 export const Navbar = () => {
 
+    const { isOpen, onOpen, onClose } = useDisclosure()
+    const btnRef = React.useRef()
+  
+
     return (
         <div className="navbar">
+            <Drawer
+            isOpen={isOpen}
+            placement='right'
+            onClose={onClose}
+            finalFocusRef={btnRef}
+            >
+            <DrawerOverlay />
+               <Drawercart></Drawercart>
+            </Drawer >
+
             <div className="head">
                 <h3>
                     SUSCRIBE NOW
@@ -23,7 +40,7 @@ export const Navbar = () => {
                 <div><BiSearch /></div>
                 <div><FiHeart/></div>
                 <div><CgProfile/></div>
-                <div><AiOutlineShoppingCart/></div>
+                <div onClick={onOpen}><AiOutlineShoppingCart/></div>
             </div>
         </div>
     )

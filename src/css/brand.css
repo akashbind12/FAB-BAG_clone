@@ -4,21 +4,21 @@
 }
 .brand{
     /* border: 1px solid red; */
-    display: flex;
+    /* display: flex; */
     width : 75%;
     margin: auto;
 }
 .brand>div{
-    /* border: 1px solid red; */
-    width : 20%;
+    /* border: 1px solid grey; */
+    width : 100%;
     height: 200px;
 }
-.brand>div>img{
+.brandimg{
     margin: 20% auto;
     width: 50%;
-    height: 50%;
+    height: 100px;
     border: 2px solid #222222;
     border-radius: 10px;
-    padding: 2px;
+
     background-color: #ffffff;
 }

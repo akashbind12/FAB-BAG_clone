@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import "../css/subscription.css"
 
 export const Subscription = () => {
@@ -17,9 +18,9 @@ export const Subscription = () => {
                     <p className="yellow">ONE TIME PAYMENT</p>
                     <h3>Rs. 599.00</h3>
                 </div>
-                <div>
+                <Link to="/productsdetails"><div className="subs_btn">
                     <button>ADD TO CART</button>
-                </div>
+                </div></Link>
             </div>
 
             <div>
@@ -33,11 +34,11 @@ export const Subscription = () => {
                 </div>
                 <div>
                     <p className="yellow">ONE TIME PAYMENT (11% OFF)</p>
-                    <h3>Rs. 1,599.00  Rs. 1,797</h3>
+                    <h3>Rs. 1,599.00  </h3>
                 </div>
-                <div>
+                <Link to="/productsdetails"><div className="subs_btn">
                     <button>ADD TO CART</button>
-                </div>
+                </div></Link>
             </div>
         </div>
     )

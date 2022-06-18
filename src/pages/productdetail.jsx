@@ -2,8 +2,25 @@ import { useState } from "react"
 import { Link } from "react-router-dom"
 import { Subscription } from "../components/subscription"
 import "../css/productdetail.css"
+import axios from "axios";
 
 export const ProductDetails = () => {
+
+  const bag = {
+    "id" : 1,
+    "img": "https://cdn.shopify.com/s/files/1/0052/7551/6995/products/Women_sPage-2---Skincare-3.gif?v=1655088937",
+    "title": "The Make It Reign June Fab Bag"
+}
+
+  const addTocart = () => {
+    axios.post('http://localhost:8080/cart', bag)
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+   }
    
     const [details, setDetails] = useState(true)
     const [view, setView] = useState(false)
@@ -30,7 +47,7 @@ export const ProductDetails = () => {
               <h1>1</h1>
               <h1>+</h1>
             </div>
-            <Link to="/cart"><button className="Add_button"> ADD TO CART</button></Link>
+            <Link to="/cart"><button className="Add_button" onClick={addTocart}> ADD TO CART</button></Link>
             </div>
         </div>
         <div className="des">

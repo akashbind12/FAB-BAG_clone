@@ -16,7 +16,7 @@ export const Brand = () => {
     ]
 
     var settings = {
-        dots: true,
+        dots: false,
         infinite: true,
         speed: 1000,
         slidesToShow: 5,
@@ -56,9 +56,9 @@ export const Brand = () => {
         <div className="mainbrand">
             <div className="brand">
                 <Slider {...settings}>
-                    {brands.map((e) => {
+                    {brands.map((e,i) => {
                         return (
-                            <div className="brandimgdiv">
+                            <div key={i} className="brandimgdiv">
                                 <img src={e} className="brandimg"  alt="brandsimg" />
                             </div>
                         )

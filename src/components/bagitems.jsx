@@ -1,30 +1,28 @@
 import "../css/bagitem.css";
 import Slider from "react-slick";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
 
 export const BagItems = () => {
 
-    const bagitem = [
-        {
-        img: "https://cdn.shopify.com/s/files/1/0052/7551/6995/files/What_s-In-The-Bag-Makeup-Reveal-1_1_f966e732-fa52-4f58-b117-b4ff2b57b163_2048x.png?v=1654234899",
-        title: "Plume Plush Matte Lipstick of your choice!*"
-        },
-        {
-        img: "https://cdn.shopify.com/s/files/1/0052/7551/6995/files/What_s-In-The-Bag-Makeup-Reveal-02_2048x.gif?v=1654408628",
-        title: "C2P Pro Epic Matte Lip Ink Set OR e’clat Fadeout Pigment Correcting Serum OR Teen Teen Ceremonial Makeup 8 Color Eyeshadow Kit*"
-        },
-        {
-        img: "https://cdn.shopify.com/s/files/1/0052/7551/6995/files/What_s-In-The-Bag--Skincare-Reveal-1_e0d6e35d-42cf-410b-9a92-eb0525b4e65c_2048x.png?v=1654580730",
-        title: "The Soap Company India Foot Therapy"
-        },
-        {
-        img: "https://cdn.shopify.com/s/files/1/0052/7551/6995/files/What_s-In-The-Bag--Skincare-Reveal-2_e505577a-ac80-4632-aaf1-f125466e35aa_2048x.png?v=1654754547",
-        title: "Baiser India Eye Brow Growth Oil"
-        },
-        {
-        img: "https://cdn.shopify.com/s/files/1/0052/7551/6995/files/What_s-In-The-Bag--Skincare-Reveal-3_2048x.gif?v=1655088829",
-        title: "Bonus Skincare"
-        }
-    ]
+  const [bagitems , setBagItems]  = useState([])
+
+  useEffect(() => {
+      getData()
+    },[])
+
+  const getData = () => {
+    axios.get('http://localhost:8080/bagitem')
+    .then(function (response) {
+      console.log(response);
+      setBagItems(response.data)
+    })
+    .catch(function (error) {
+      console.log(error);
+    })
+  }
+
 
     
 function SampleNextArrow(props) {
@@ -89,10 +87,10 @@ function SampleNextArrow(props) {
     return (
         <div className="bagitem">
             <Slider {...settings}>
-            {bagitem.map((e) => {
+            {bagitems.map((e,i) => {
                 return (
-                    <div className="bagitemdiv">
-                        <img  className="bagitemimg" src={e.img} alt="bagitem" />
+                    <div key={i} className="bagitemdiv">
+                        <Link to="/productsdetails"><img  className="bagitemimg" src={e.img} alt="bagitem" /></Link>
                         <h3 className="bagitemtitle">{e.title}</h3>
                     </div>
                 )

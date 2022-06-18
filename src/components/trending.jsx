@@ -18,9 +18,9 @@ export const Trending = () => {
         <div>
             <div className="trend_heading">#TRENDINGNOW AT THE GOSSIP CORNER</div>
             <div className="trendingdiv">
-                {trending_img.map((e) => {
+                {trending_img.map((e,i) => {
                     return (
-                        <div>
+                        <div key={i}>
                             <img src={e} alt="img" />
                         </div>
                     )

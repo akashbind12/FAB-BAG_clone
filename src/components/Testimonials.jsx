@@ -81,14 +81,12 @@ export const Testimonials = () => {
                         <FaQuoteLeft></FaQuoteLeft>
             </div>
             <Slider {...settings}>
-            {Testimonals.map((e) => {
+            {Testimonals.map((e,i) => {
                 return (
-                    <>
-                    <div className="quotesdiv">
+                    <div key={i} className="quotesdiv">
                         <p>{e.feedback}</p>
                         <p>- {e.customer}</p>
                     </div>
-                    </>
                 )
             })}
             </Slider>    

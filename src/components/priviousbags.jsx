@@ -1,30 +1,49 @@
-import "../css/priviousbag.css"
+import "../css/priviousbag.css";
+import { useEffect, useState } from "react";
+import axios from "axios"
 
 export const PriviousBags = () => {
 
+    const [priviousbags , setPriviousBags]  = useState([])
+
+    useEffect(() => {
+        getData()
+      },[])
+  
+    const getData = () => {
+      axios.get('http://localhost:8080/priviousbag')
+      .then(function (response) {
+        console.log(response);
+        setPriviousBags(response.data)
+      })
+      .catch(function (error) {
+        console.log(error);
+      })
+    }
+
+
     return (
         <div className="priviousbag">
-            <div>
-                <img src="https://cdn.shopify.com/s/files/1/0052/7551/6995/products/Skincare-2-With-BONUS_large.gif?v=1652238042" alt="bag" />
-                <p>May'22 The AweSummer May Fab Bag</p>
-                <h4>from Rs. 599.00</h4>
-            </div>
-            <div>
-                <img src="https://cdn.shopify.com/s/files/1/0052/7551/6995/products/Women_sPage-Skincare-Reveal-3_1728264b-2e0f-4314-9a3c-0fde458d72a7_large.png?v=1649483317" alt="bag" />
-                <p>Apr'22 The Sassy Spring Fab Bag</p>
-                <h4>from Rs. 599.00</h4>
-            </div>
-            <div>
-                <img src="https://cdn.shopify.com/s/files/1/0052/7551/6995/products/Women_sPage-Skincare-Reveal-3_large.png?v=1646971494" alt="bag" />
-                <p>Mar'22 The Empow-HER Fab Bag</p>
-                <h4>from Rs. 599.00</h4>
-            </div>
-            <div>
-                <img src="https://cdn.shopify.com/s/files/1/0052/7551/6995/products/Women_sPage-Skincare-Reveal-2_large.gif?v=1644395072" alt="bag" />
-                <p>Feb'22 The Colour Me Cupid Fab Bag</p>
-                <h4>from Rs. 599.00</h4>
-            </div>
+            {priviousbags.map((e,i) => {
+                return (
+                    <div key={i}>
+                    <img src={e.img} alt="bag" />
+                    <p>{e.title}</p>
+                    <h4>from Rs. 599.00</h4>
+                </div>
+                )
+            })}
         </div>
     )
 }
-// {/* <p>May'22 The AweSummer May Fab Bag</p> */}
+
+
+
+// {
+//     img: "https://cdn.shopify.com/s/files/1/0052/7551/6995/products/Women_sPage-Skincare-Reveal--3_large.png?v=1641707966",
+//     title: "Jan'22 The Beauty Resolution Fab Bag"
+// }
+// {
+//     img: "https://cdn.shopify.com/s/files/1/0052/7551/6995/products/Women_sPage-3_large.gif?v=1638191014",
+//     title: "Dec'21 The X-Must Haves Fab Bag"
+// }

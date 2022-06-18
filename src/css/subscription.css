@@ -21,7 +21,7 @@
     border: 1px solid lightgray;
     padding-bottom: 200px;
 }
-.subscription>div>div:nth-child(4){
+.subs_btn{
     padding: 20px;
     background-color: #e5b95f;
 }
@@ -42,7 +42,7 @@
     padding: 0px;
     font-weight: bold;
 }
-.subscription>div>div>button{
+.subs_btn>button{
         width: 100%;
         background-color: #e5b95f;
         border: 1px solid #ffffff;
@@ -54,7 +54,7 @@
         cursor: pointer;
     
 }
-.subscription>div>div>button:hover {
+.subs_btn>button:hover {
     color: #333;
     text-decoration: none;
 }

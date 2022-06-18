@@ -8,12 +8,14 @@ import {Drawer,DrawerOverlay,useDisclosure} from '@chakra-ui/react'
 import React from "react";
 import { Drawercart } from "./drawer";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 export const Navbar = () => {
 
     const { isOpen, onOpen, onClose } = useDisclosure()
     const btnRef = React.useRef()
-  
+    
+    const cartitems = useSelector((state) => state.carts.cart)
 
     return (
         <div className="navbar">
@@ -48,7 +50,7 @@ export const Navbar = () => {
                     width: "20px",
                     height : "20px"
                 }} />
-                    <p>0</p>
+                    <p>{cartitems.length}</p>
                 </div>
             </div>
         </div>

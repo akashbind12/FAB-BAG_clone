@@ -33,7 +33,7 @@ export const AddToCart = (payload) => (dispatch)=> {
     
     axios.post('http://localhost:8080/cart', payload)
       .then(function (response) {
-          console.log(response.data);
+          console.log("bag",response.data);
           dispatch(GetCart())
       })
       .catch(function (error) {
@@ -43,7 +43,7 @@ export const AddToCart = (payload) => (dispatch)=> {
 }
 
 export const GetCart = (payload) => (dispatch)=> {
-    dispatch(companyRequest())
+    dispatch(CartRequest())
   
     
     axios.get('http://localhost:8080/cart')
@@ -56,3 +56,19 @@ export const GetCart = (payload) => (dispatch)=> {
           dispatch(CartFailure(error.message))
       });
 }
+
+export const DelteCart = (id) => (dispatch)=> {
+    dispatch(CartRequest())
+  
+    
+    axios.delete(`http://localhost:8080/cart/${id}`)
+    .then(function (response) {
+        console.log(response.data);
+        dispatch(GetCart())
+    })
+    .catch(function (error) {
+        console.log(error);
+        dispatch(CartFailure(error.message))
+    });
+}
+

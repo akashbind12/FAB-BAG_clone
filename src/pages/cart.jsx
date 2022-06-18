@@ -2,42 +2,27 @@ import "../css/cart.css"
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { DelteCart, GetCart } from "../Redux/cart/action";
 
 
 export const Cart = () => {
-
-    const [cartitems , setCartItems]  = useState([])
+    
+    const dispatch = useDispatch()
+    const cartitems = useSelector((state) => state.carts.cart)
     
     const total = cartitems.reduce(function (a, v) {
         return a + 599
     }, 0)
     
 
-  useEffect(() => {
-      getData()
-    },[])
-
-  const getData = () => {
-    axios.get('http://localhost:8080/cart')
-    .then(function (response) {
-      console.log(response);
-      setCartItems(response.data)
-    })
-    .catch(function (error) {
-      console.log(error);
-    })
-  }
+    useEffect(() => {
+        dispatch(GetCart())
+    }, [])
+    
 
     const DeleteCartItem = (id) => {
-
-        axios.delete(`http://localhost:8080/cart/${id}`)
-        .then(function (response) {
-          console.log(response);
-          getData()
-        })
-        .catch(function (error) {
-          console.log(error);
-        })
+        dispatch(DelteCart(id))
     }
 
     return (
@@ -85,7 +70,7 @@ export const Cart = () => {
                         <div>TOTAL PRICE</div>
                         <div>Rs. {total}.00</div>
                     </div>
-                    <div className="viewcart" onClick={getData}>UPDATE CART</div>
+                    <div className="viewcart" onClick={()=>GetCart()}>UPDATE CART</div>
                     <div className="updatecart">CHECKOUT</div>
                 </div>
             </div>

@@ -3,23 +3,21 @@ import { Link } from "react-router-dom"
 import { Subscription } from "../components/subscription"
 import "../css/productdetail.css"
 import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { AddToCart } from "../Redux/cart/action";
 
 export const ProductDetails = () => {
+  
+  const dispatch = useDispatch()
 
   const bag = {
     "id" : 1,
     "img": "https://cdn.shopify.com/s/files/1/0052/7551/6995/products/Women_sPage-2---Skincare-3.gif?v=1655088937",
     "title": "The Make It Reign June Fab Bag"
-}
+   }
 
   const addTocart = () => {
-    axios.post('http://localhost:8080/cart', bag)
-    .then(function (response) {
-      console.log(response);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+     dispatch(AddToCart(bag))
    }
    
     const [details, setDetails] = useState(true)

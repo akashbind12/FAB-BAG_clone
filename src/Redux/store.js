@@ -4,7 +4,7 @@ import { CartReducer} from "./cart/reducer";
 
 
 const rootReducer = combineReducers({
-    companys: CartReducer,
+    carts : CartReducer,
 })
 
 

@@ -15,6 +15,8 @@ import { Link } from 'react-router-dom';
 import "../css/drawer.css"
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { DelteCart, GetCart } from "../Redux/cart/action";
 
 
 
@@ -22,40 +24,20 @@ import axios from "axios";
 export const  Drawercart =() => {
     const { isOpen, onOpen, onClose } = useDisclosure()
     const btnRef = React.useRef()
+    
+    const dispatch = useDispatch()
+    const cartitems = useSelector((state) => state.carts.cart)
 
-    const [cartitems, setCartItems] = useState([])
     
     const total = cartitems.reduce(function (a, v) {
         return a + 599
     }, 0)
     
   useEffect(() => {
-      getData()
+      dispatch(GetCart())
     },[])
 
-  const getData = () => {
-    axios.get('http://localhost:8080/cart')
-    .then(function (response) {
-      console.log(response);
-      setCartItems(response.data)
-    })
-    .catch(function (error) {
-      console.log(error);
-    })
-  }
 
-    const DeleteCartItem = (id) => {
-        console.log(id)
-
-        axios.delete(`http://localhost:8080/cart/${id}`)
-        .then(function (response) {
-          console.log(response);
-          getData()
-        })
-        .catch(function (error) {
-          console.log(error);
-        })
-    }
   
     return (
       <>
@@ -75,7 +57,7 @@ export const  Drawercart =() => {
                                 <h1>{e.title}</h1>
                                 <h1 className='Qty'>Qty: 1 Rs. 599.00</h1>
                             </div>
-                            <div className='drawerclosebutton' onClick={() =>DeleteCartItem(e.id)}>
+                            <div className='drawerclosebutton' onClick={() =>dispatch(DelteCart(e.id))}>
                                 X
                             </div>
                         </div>

@@ -31,7 +31,7 @@ export const AddToCart = (payload) => (dispatch)=> {
     dispatch(CartRequest())
   
     
-    axios.post('http://localhost:8080/cart', payload)
+    axios.post('https://fab-bag.herokuapp.com/cart', payload)
       .then(function (response) {
           console.log("bag",response.data);
           dispatch(GetCart())
@@ -46,7 +46,7 @@ export const GetCart = (payload) => (dispatch)=> {
     dispatch(CartRequest())
   
     
-    axios.get('http://localhost:8080/cart')
+    axios.get('https://fab-bag.herokuapp.com/cart')
       .then(function (response) {
           console.log(response.data);
           dispatch(CartSuccess(response.data))
@@ -61,7 +61,7 @@ export const DelteCart = (id) => (dispatch)=> {
     dispatch(CartRequest())
   
     
-    axios.delete(`http://localhost:8080/cart/${id}`)
+    axios.delete(`https://fab-bag.herokuapp.com/cart/${id}`)
     .then(function (response) {
         console.log(response.data);
         dispatch(GetCart())

@@ -11,7 +11,7 @@ export const PriviousBags = () => {
       },[])
   
     const getData = () => {
-      axios.get('http://localhost:8080/priviousbag')
+      axios.get('https://fab-bag.herokuapp.com/priviousbag')
       .then(function (response) {
         console.log(response);
         setPriviousBags(response.data)

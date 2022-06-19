@@ -87,7 +87,7 @@ return (<div>
                     <div>Forgot your password?</div>
                 </div> 
                 <div className="SU" >
-                    <input className="submitsignin" type="submit" value="Sign in"/>
+                    <Link to="/"><input className="submitsignin" type="submit" value="Sign in"/></Link>
                 </div>
                 <hr/>
             </form>

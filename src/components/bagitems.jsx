@@ -13,7 +13,7 @@ export const BagItems = () => {
     },[])
 
   const getData = () => {
-    axios.get('http://localhost:8080/bagitem')
+    axios.get('https://fab-bag.herokuapp.com/bagitem')
     .then(function (response) {
       console.log(response);
       setBagItems(response.data)

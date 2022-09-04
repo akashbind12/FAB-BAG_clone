@@ -36,6 +36,7 @@
     font-weight: 700;
     text-transform: uppercase;
     color: #333;
+    cursor: pointer;
 }
 .row>div:nth-child(1){
     width: 65%;
@@ -113,6 +114,7 @@
     color: white;
     border: none;
     border-radius: 5px;
+    cursor: pointer;
 }
 .viewcart:hover{
     background-color: #e5b95f;
@@ -126,6 +128,7 @@
     color: white;
     border: none;
     border-radius: 5px;
+    cursor: pointer;
 }
 .updatecart:hover{
     background-color: black;

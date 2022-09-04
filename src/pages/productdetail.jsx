@@ -10,19 +10,34 @@ export const ProductDetails = () => {
   
   const dispatch = useDispatch()
 
-  const bag = {
+  const [details, setDetails] = useState(true)
+  const [view, setView] = useState(false)
+  const [quntity, setQuntity] = useState(1)
+  
+    const product= {
     "id" : 1,
     "img": "https://cdn.shopify.com/s/files/1/0052/7551/6995/products/Women_sPage-2---Skincare-3.gif?v=1655088937",
-    "title": "The Make It Reign June Fab Bag"
+    "title": "The Make It Reign June Fab Bag",
+    "qty" : quntity
    }
+
+  // const bag = {
+  //   "id" : 1,
+  //   "img": "https://cdn.shopify.com/s/files/1/0052/7551/6995/products/Women_sPage-2---Skincare-3.gif?v=1655088937",
+  //   "title": "The Make It Reign June Fab Bag"
+  //  }
 
   const addTocart = () => {
-     dispatch(AddToCart(bag))
+    console.log("product",product)
+     dispatch(AddToCart(product))
+   }
+
+  const handlechange = (value) => {
+    setQuntity(quntity + value)
+    console.log(quntity)
    }
    
-    const [details, setDetails] = useState(true)
-    const [view, setView] = useState(false)
-
+    
     return (
         <>
         <div className="main">
@@ -41,9 +56,15 @@ export const ProductDetails = () => {
               <p> 2 MONTH</p>
             </div>
             <div className="counter">
-              <h1>-</h1>
-              <h1>1</h1>
-              <h1>+</h1>
+              <h1 onClick={() => {
+                if (quntity <= 1) {
+                  return
+                } else {
+                  handlechange(-1)
+                }
+              }} >-</h1>
+              <h1>{quntity}</h1>
+              <h1 onClick={() => handlechange(1)} >+</h1>
             </div>
             <Link to="/cart"><button className="Add_button" onClick={addTocart}> ADD TO CART</button></Link>
             </div>

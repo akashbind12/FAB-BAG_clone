@@ -1,7 +1,7 @@
 import "../css/cart.css"
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { DelteCart, GetCart } from "../Redux/cart/action";
 
@@ -10,9 +10,10 @@ export const Cart = () => {
     
     const dispatch = useDispatch()
     const cartitems = useSelector((state) => state.carts.cart)
+    const navigate = useNavigate()
     
     const total = cartitems.reduce(function (a, v) {
-        return a + 599
+        return a + 599*v.qty
     }, 0)
     
 
@@ -49,11 +50,11 @@ export const Cart = () => {
                             <div style={{
                                 fontSize: "15px",
                                 fontWeight :"400"
-                            }} className="qty">1</div>
+                            }} className="qty">{e.qty}</div>
                             <div style={{
                                 fontSize: "15px",
                                 fontWeight: "400",
-                            }} className="price">Rs. {total}.00</div>
+                            }} className="price">Rs. 599.00</div>
                             <div className="delete" style={{
                                 fontSize: "15px",
                                 fontWeight: "400",
@@ -71,7 +72,11 @@ export const Cart = () => {
                         <div>Rs. {total}.00</div>
                     </div>
                     <div className="viewcart" onClick={()=>GetCart()}>UPDATE CART</div>
-                    <div className="updatecart">CHECKOUT</div>
+                    <div className="updatecart" onClick={() => {
+                        alert("Order Placed successfully")
+                        navigate("/")
+                        DeleteCartItem(cartitems[0].id)
+                    }} >CHECKOUT</div>
                 </div>
             </div>
         </div>

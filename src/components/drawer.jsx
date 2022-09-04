@@ -30,7 +30,7 @@ export const  Drawercart =() => {
 
     
     const total = cartitems.reduce(function (a, v) {
-        return a + 599
+        return a + 599*v.qty
     }, 0)
     
   useEffect(() => {
@@ -55,7 +55,7 @@ export const  Drawercart =() => {
                             </div>
                             <div className='drawercartitemdetails'>
                                 <h1>{e.title}</h1>
-                                <h1 className='Qty'>Qty: 1 Rs. 599.00</h1>
+                                <h1 className='Qty'>Qty: {e.qty} Rs. 599.00</h1>
                             </div>
                             <div className='drawerclosebutton' onClick={() =>dispatch(DelteCart(e.id))}>
                                 X
